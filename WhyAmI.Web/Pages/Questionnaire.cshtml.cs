@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using QuestionnaireInRazorPage.Services;
 using WhyAmI.Web.Models;
+using WhyAmI.Web.Services;
 
 namespace WhyAmI.Web.Pages;
 
