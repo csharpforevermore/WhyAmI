@@ -1,0 +1,109 @@
+@using WhyAmI.Web.Models
+@model Questionnaire
+
+@{
+    var questions = Model.Questions;
+    if (questions.Count == 0)
+    {
+        questions = new List<Question>
+        {
+            new() { Text = string.Empty }
+        };
+    }
+}
+
+<div class="form-group mb-3" id="questions-editor">
+    <label class="control-label">Questions</label>
+    <span class="text-danger">*</span>
+    <div id="questions-list">
+        @for (var i = 0; i < questions.Count; i++)
+        {
+            var question = questions[i];
+            question.Number = i + 1;
+
+            <div class="question-row border rounded p-3 mb-3" data-question-index="@i">
+                <input type="hidden" name="Questionnaire.Questions[@i].Id" value="@question.Id" class="question-id" />
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <strong>Question <span class="question-number">@(i + 1)</span></strong>
+                    <button type="button" class="btn btn-sm btn-outline-danger remove-question">Remove</button>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">Number</label>
+                    <input type="number" name="Questionnaire.Questions[@i].Number" value="@question.Number" class="form-control question-number-input" required/>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">Text</label>
+                    <input name="Questionnaire.Questions[@i].Text" value="@question.Text" class="form-control question-text" maxlength="200" required />
+                </div>
+            </div>
+        }
+    </div>
+    <button type="button" class="btn btn-outline-primary" id="add-question">Add Question</button>
+    <span asp-validation-for="Questions" class="text-danger"></span>
+</div>
+
+<template id="question-row-template">
+    <div class="question-row border rounded p-3 mb-3" data-question-index="__q__">
+        @* <input type="hidden" name="Questionnaire.Questions[__q__].Id" value="" class="question-id" />  *@
+        <input type="hidden" name="Questionnaire.Questions[__q__].Id"
+               value="00000000-0000-0000-0000-000000000000" class="question-id" />
+        <div class="d-flex justify-content-between align-items-center mb-2">
+            <strong>Question <span class="question-number">__qn__</span></strong>
+            <button type="button" class="btn btn-sm btn-outline-danger remove-question">Remove</button>
+        </div>
+        <div class="mb-2">
+            <label class="form-label">Number</label>
+            <input type="number" name="Questionnaire.Questions[__q__].Number" value="1" class="form-control question-number-input" required/>
+        </div>
+        <div class="mb-2">
+            <label class="form-label">Text</label>
+            <input name="Questionnaire.Questions[__q__].Text" value="" class="form-control question-text" maxlength="200" required />
+        </div>
+    </div>
+</template>
+
+<script>
+(function () {
+    const list = document.getElementById('questions-list');
+    const questionTemplate = document.getElementById('question-row-template');
+
+    function reindexQuestions() {
+        const rows = list.querySelectorAll('.question-row');
+        rows.forEach((row, qIndex) => {
+            row.dataset.questionIndex = qIndex;
+            row.querySelector('.question-number').textContent = String(qIndex + 1);
+            const numberInput = row.querySelector('.question-number-input');
+            if (numberInput) {
+                numberInput.value = String(qIndex + 1);
+            }
+            row.querySelectorAll('[name^="Questionnaire.Questions["]').forEach((input) => {
+                input.name = input.name.replace(/Questionnaire\.Questions\[\d+\]/, `Questionnaire.Questions[${qIndex}]`);
+            });
+        });
+    }
+
+    document.getElementById('add-question').addEventListener('click', () => {
+        const html = questionTemplate.innerHTML
+            .replaceAll('__q__', '0')
+            .replaceAll('__qn__', '1');
+        list.insertAdjacentHTML('beforeend', html);
+        reindexQuestions();
+    });
+
+    list.addEventListener('click', (event) => {
+        const target = event.target;
+        if (!(target instanceof HTMLElement)) {
+            return;
+        }
+
+        if (target.classList.contains('remove-question')) {
+            const rows = list.querySelectorAll('.question-row');
+            if (rows.length <= 1) {
+                return;
+            }
+            target.closest('.question-row')?.remove();
+            reindexQuestions();
+        }
+    });
+})();
+</script>

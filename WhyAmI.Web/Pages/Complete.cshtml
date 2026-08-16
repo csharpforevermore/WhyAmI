@@ -1,0 +1,26 @@
+@page
+@model WhyAmI.Web.Pages.CompleteModel
+@{
+    ViewData["Title"] = "Questionnaire complete";
+}
+
+<div class="row justify-content-center">
+    <div class="col-lg-7">
+        <h1 class="h3 mb-3">Thanks. Here is what you submitted.</h1>
+        <p class="text-muted">The browser back button cannot return you to a previous question. Start again if you want to change an answer.</p>
+
+        <ol class="list-group list-group-numbered mb-4">
+            @foreach (var (question, answer) in Model.Responses)
+            {
+                <li class="list-group-item">
+                    <div class="fw-semibold">@question.Text</div>
+                    <div>@answer</div>
+                </li>
+            }
+        </ol>
+
+        <form method="post">
+            <button type="submit" class="btn btn-primary" asp-page-handler="Restart">Start a new questionnaire</button>
+        </form>
+    </div>
+</div>

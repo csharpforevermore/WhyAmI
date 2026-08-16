@@ -1,0 +1,40 @@
+@page
+@model QuestionnaireListModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Questionnaire[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Questionnaire[0].Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Questionnaire) {
+        <tr>
+            <td>
+                <h1>@Html.DisplayFor(model => item.Title)</h1>
+            </td>
+            <td>
+                <p>@Html.DisplayFor(model => item.Description)</p>
+            </td>
+            <td>
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

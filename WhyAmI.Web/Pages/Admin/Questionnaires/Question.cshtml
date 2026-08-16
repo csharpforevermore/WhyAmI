@@ -1,0 +1,57 @@
+﻿@page "{id:guid?}/{number:int?}"
+@model QuestionModel
+
+@{
+    ViewData["Title"] = "Question";
+}
+
+<h1>@Html.DisplayFor(m => Model.Questionnaire.Title)</h1>
+
+@if (Model.Question is null)
+{
+    <div class="alert alert-warning">No question found.</div>
+}
+else
+{
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">Question @Model.Question.Number</h5>
+            <p class="card-text">@Model.Question.Text</p>
+            <p>
+                <strong>True/False:</strong>
+                @(Model.Question.HasTrueFalse ? "Yes" : "No")
+            </p>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-between">
+        @{
+            var questions = Model.Questionnaire.Questions.OrderBy(q => q.Number).ToList();
+            var prevIndex = Model.CurrentIndex - 1;
+            var nextIndex = Model.CurrentIndex + 1;
+        }
+        @if (prevIndex >= 0)
+        {
+            <a class="btn btn-outline-primary"
+               asp-page="./Question"
+               asp-route-id="@Model.Questionnaire.Id"
+               asp-route-number="@questions[prevIndex].Number">Previous</a>
+        }
+        else
+        {
+            <span></span>
+        }
+
+        <div>
+            <a class="btn btn-secondary" asp-page="./Details" asp-route-id="@Model.Questionnaire.Id">Back to Questionnaire</a>
+        </div>
+
+        @if (nextIndex < questions.Count)
+        {
+            <a class="btn btn-outline-primary"
+               asp-page="./Question"
+               asp-route-id="@Model.Questionnaire.Id"
+               asp-route-number="@questions[nextIndex].Number">Next</a>
+        }
+    </div>
+}

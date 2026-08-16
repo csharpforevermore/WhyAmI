@@ -1,0 +1,89 @@
+@using WhyAmI.Web.Models
+@model WhyAmI.Web.Models.Questionnaire
+
+@{
+    var scoreOptions = Model.ScoreOptions?.Count > 0
+        ? Model.ScoreOptions
+        : new List<ScoreOption> { new() { Score = 0, Text = string.Empty } };
+}
+
+<div class="form-group mb-3" id="score-options-editor">
+    <label asp-for="ScoreOptions" class="control-label"></label>
+    <span class="text-danger">*</span>
+    <div id="score-options-list">
+        @for (var j = 0; j < scoreOptions.Count; j++)
+        {
+            <div class="score-option-row row g-2 mb-2 align-items-end" data-score-index="@j">
+                <div class="col-3">
+                    <label class="form-label">Score</label>
+                    <input type="number" name="Questionnaire.ScoreOptions[@j].Score" value="@scoreOptions[j].Score" class="form-control score-value" required />
+                </div>
+                <div class="col-7">
+                    <label class="form-label">Text</label>
+                    <input name="Questionnaire.ScoreOptions[@j].Text" value="@scoreOptions[j].Text" class="form-control score-description" maxlength="200" />
+                </div>
+                <div class="col-2">
+                    <button type="button" class="btn btn-sm btn-outline-danger remove-score-option w-100">Remove</button>
+                </div>
+            </div>
+        }
+    </div>
+    <button type="button" class="btn btn-sm btn-outline-secondary" id="add-score-option">Add score option</button>
+    <span asp-validation-for="ScoreOptions" class="text-danger"></span>
+</div>
+
+<template id="score-option-row-template">
+    <div class="score-option-row row g-2 mb-2 align-items-end" data-score-index="__s__">
+        <div class="col-3">
+            <label class="form-label">Score</label>
+            <input type="number" name="Questionnaire.ScoreOptions[__s__].Score" value="0" class="form-control score-value" required />
+        </div>
+        <div class="col-7">
+            <label class="form-label">Text</label>
+            <input name="Questionnaire.ScoreOptions[__s__].Text" value="" class="form-control score-description" maxlength="200" />
+        </div>
+        <div class="col-2">
+            <button type="button" class="btn btn-sm btn-outline-danger remove-score-option w-100">Remove</button>
+        </div>
+    </div>
+</template>
+
+<script>
+(function () {
+    const list = document.getElementById('score-options-list');
+    const scoreTemplate = document.getElementById('score-option-row-template');
+
+    function reindexScoreOptions() {
+        const scoreRows = list.querySelectorAll('.score-option-row');
+        scoreRows.forEach((scoreRow, sIndex) => {
+            scoreRow.dataset.scoreIndex = sIndex;
+            scoreRow.querySelectorAll('[name*="Questionnaire.ScoreOptions["]').forEach((input) => {
+                input.name = `Questionnaire.ScoreOptions[${sIndex}].` +
+                    (input.classList.contains('score-value') ? 'Score' : 'Text');
+            });
+        });
+    }
+
+    document.getElementById('add-score-option').addEventListener('click', () => {
+        const html = scoreTemplate.innerHTML.replaceAll('__s__', '0');
+        list.insertAdjacentHTML('beforeend', html);
+        reindexScoreOptions();
+    });
+
+    list.addEventListener('click', (event) => {
+        const target = event.target;
+        if (!(target instanceof HTMLElement)) {
+            return;
+        }
+
+        if (target.classList.contains('remove-score-option')) {
+            const scoreRows = list.querySelectorAll('.score-option-row');
+            if (scoreRows.length <= 1) {
+                return;
+            }
+            target.closest('.score-option-row')?.remove();
+            reindexScoreOptions();
+        }
+    });
+})();
+</script>

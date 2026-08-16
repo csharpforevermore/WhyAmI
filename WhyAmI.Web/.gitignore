@@ -1,0 +1,11 @@
+## .NET
+bin/
+obj/
+*.user
+*.suo
+.vs/
+
+## SQLite
+*.db
+*.db-shm
+*.db-wal
