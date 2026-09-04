@@ -14,6 +14,10 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
     public DbSet<Question> Questions => Set<Question>();
     public DbSet<Answer> Answers => Set<Answer>();
     public DbSet<CustomerQuestionnaireResults> CustomerQuestionnaireResults => Set<CustomerQuestionnaireResults>();
+    public DbSet<Survey> Surveys => Set<Survey>();
+    public DbSet<SurveyQuestion> SurveyQuestions => Set<SurveyQuestion>();
+    public DbSet<SurveyResponse> SurveyResponses => Set<SurveyResponse>();
+    public DbSet<SurveyResponseAnswer> SurveyResponseAnswers => Set<SurveyResponseAnswer>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -23,6 +27,10 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
         ConfigureBaseProperties<Question>(modelBuilder);
         ConfigureBaseProperties<Answer>(modelBuilder);
         ConfigureBaseProperties<CustomerQuestionnaireResults>(modelBuilder);
+        ConfigureBaseProperties<Survey>(modelBuilder);
+        ConfigureBaseProperties<SurveyQuestion>(modelBuilder);
+        ConfigureBaseProperties<SurveyResponse>(modelBuilder);
+        ConfigureBaseProperties<SurveyResponseAnswer>(modelBuilder);
 
         modelBuilder.Entity<ContactDetails>(entity =>
         {
@@ -109,6 +117,89 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
             entity.HasMany(r => r.Vendors)
                 .WithMany();
         });
+
+        var surveyScoreOptionsComparer = new ValueComparer<IList<SurveyScoreOption>>(
+            (left, right) => SurveyScoreOptionsConverter.Serialize(left!) == SurveyScoreOptionsConverter.Serialize(right!),
+            value => SurveyScoreOptionsConverter.Serialize(value).GetHashCode(),
+            value => SurveyScoreOptionsConverter.Deserialize(SurveyScoreOptionsConverter.Serialize(value)));
+
+        modelBuilder.Entity<Survey>(entity =>
+        {
+            entity.Property(s => s.Title).IsRequired().HasMaxLength(200);
+            entity.Property(s => s.SubTitle).HasMaxLength(500);
+            entity.Property(s => s.Source).HasMaxLength(200);
+            entity.Property(s => s.Description).HasMaxLength(500);
+            entity.Property(s => s.IsEnabled).HasDefaultValue(true);
+
+            entity.OwnsMany(s => s.ScoreOptions, options =>
+            {
+                options.ToTable("SurveyScoreOptions", table =>
+                    table.HasCheckConstraint("CK_SurveyScoreOptions_Score", "\"Score\" >= 1 AND \"Score\" <= 5"));
+                options.Property<int>("Id");
+                options.HasKey("SurveyId", "Id");
+                options.WithOwner().HasForeignKey("SurveyId");
+                options.Property(o => o.Score).IsRequired();
+                options.Property(o => o.Text).IsRequired().HasMaxLength(200);
+                options.HasIndex("SurveyId", nameof(SurveyScoreOption.Score)).IsUnique();
+            });
+
+            entity.HasMany(s => s.Questions)
+                .WithOne(q => q.Survey)
+                .HasForeignKey(q => q.SurveyId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Cascade);
+        });
+
+        modelBuilder.Entity<SurveyQuestion>(entity =>
+        {
+            entity.Property(q => q.Text).IsRequired().HasMaxLength(200);
+            entity.HasIndex(q => new { q.SurveyId, q.Number }).IsUnique();
+        });
+
+        modelBuilder.Entity<SurveyResponse>(entity =>
+        {
+            entity.Property(r => r.SurveyTitle).IsRequired().HasMaxLength(200);
+            entity.Property(r => r.SurveyDescription).HasMaxLength(500);
+            entity.Property(r => r.ScoreOptionsSnapshot)
+                .HasConversion(
+                    value => SurveyScoreOptionsConverter.Serialize(value),
+                    value => SurveyScoreOptionsConverter.Deserialize(value))
+                .HasColumnType("TEXT")
+                .Metadata.SetValueComparer(surveyScoreOptionsComparer);
+
+            entity.HasOne(r => r.Customer)
+                .WithMany()
+                .HasForeignKey(r => r.CustomerId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
+
+            entity.HasOne(r => r.Survey)
+                .WithMany()
+                .HasForeignKey(r => r.SurveyId)
+                .IsRequired(false)
+                .OnDelete(DeleteBehavior.SetNull);
+
+            entity.HasMany(r => r.Answers)
+                .WithOne(a => a.SurveyResponse)
+                .HasForeignKey(a => a.SurveyResponseId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Cascade);
+        });
+
+        modelBuilder.Entity<SurveyResponseAnswer>(entity =>
+        {
+            entity.Property(a => a.QuestionText).IsRequired().HasMaxLength(200);
+            entity.Property(a => a.AnswerText).IsRequired().HasMaxLength(200);
+            entity.HasIndex(a => new { a.SurveyResponseId, a.QuestionNumber }).IsUnique();
+            entity.ToTable(table =>
+                table.HasCheckConstraint("CK_SurveyResponseAnswers_Score", "\"Score\" >= 1 AND \"Score\" <= 5"));
+
+            entity.HasOne(a => a.SourceQuestion)
+                .WithMany()
+                .HasForeignKey(a => a.SourceQuestionId)
+                .IsRequired(false)
+                .OnDelete(DeleteBehavior.SetNull);
+        });
     }
 
     private static void ConfigureBaseProperties<TEntity>(ModelBuilder modelBuilder)
@@ -129,6 +220,18 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
 
         public static IList<ScoreOption> Deserialize(string value) =>
             JsonSerializer.Deserialize<List<ScoreOption>>(value, JsonOptions)
+            ?? [];
+    }
+
+    private static class SurveyScoreOptionsConverter
+    {
+        private static readonly JsonSerializerOptions JsonOptions = new();
+
+        public static string Serialize(IList<SurveyScoreOption> value) =>
+            JsonSerializer.Serialize(value, JsonOptions);
+
+        public static IList<SurveyScoreOption> Deserialize(string value) =>
+            JsonSerializer.Deserialize<List<SurveyScoreOption>>(value, JsonOptions)
             ?? [];
     }
 }
