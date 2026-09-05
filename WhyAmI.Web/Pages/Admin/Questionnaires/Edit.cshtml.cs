@@ -55,6 +55,7 @@ public class EditModel(AppDbContext context) : PageModel
         }
 
         questionnaire.Title = Questionnaire.Title;
+        questionnaire.Description = Questionnaire.Description;
         questionnaire.ScoreOptions =
         [
             .. Questionnaire.ScoreOptions

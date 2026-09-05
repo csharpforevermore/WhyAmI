@@ -45,7 +45,7 @@ public class Questionnaire : Base
     /// Summary description of the questionnaire, limited to 500 characters.
     /// </summary>
     [StringLength(500)]
-    public string Description { get; init; } = "";
+    public string Description { get; set; } = "";
 
     /// <summary>
     /// Indicates whether the questionnaire is enabled or disabled. When disabled, it will not be available for users to take.
