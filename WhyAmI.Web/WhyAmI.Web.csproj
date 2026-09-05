@@ -7,12 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="..\..\QuestionnaireInRazorPage\Services\IQuestionCatalog.cs" Link="Services\IQuestionCatalog.cs" />
-    <Compile Include="..\..\QuestionnaireInRazorPage\Services\QuestionCatalog.cs" Link="Services\QuestionCatalog.cs" />
-    <Compile Include="..\..\QuestionnaireInRazorPage\Services\QuestionnaireSessionStore.cs" Link="Services\QuestionnaireSessionStore.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.10">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
@@ -28,7 +22,6 @@
 
   <ItemGroup>
     <Folder Include="Migrations\" />
-    <Folder Include="Services\" />
   </ItemGroup>
 
 </Project>
