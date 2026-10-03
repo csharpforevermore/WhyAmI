@@ -11,6 +11,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{9F5F65EC-5
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhyAmI.Web", "WhyAmI.Web\WhyAmI.Web.csproj", "{304DC48C-E96B-C74B-5698-3CE224F88F5B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "vercel", "vercel", "{8F2FA92E-AE73-459C-AFDD-3CED582A3F27}"
+	ProjectSection(SolutionItems) = preProject
+		vercel\home.html = vercel\home.html
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

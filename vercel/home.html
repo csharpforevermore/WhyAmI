@@ -1,0 +1,656 @@
+<!doctype html>
+<!-- saved from url=(0031)https://whyami-beta.vercel.app/ -->
+<html lang="en" class="dark">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="chrome-extension://gehmmocbbkpblljhkekmfhjpfbkclbph/content/pageScripts/dashlane-webkit-animation-page-script.js"
+            id="dashlane_webkit_animation"></script>
+    <script src="chrome-extension://gehmmocbbkpblljhkekmfhjpfbkclbph/content/pageScripts/dashlane-shadow-dom-page-script.js"
+            id="dashlane_shadow_dom"></script>
+    <script src="chrome-extension://gehmmocbbkpblljhkekmfhjpfbkclbph/content/pageScripts/dashlane-top-layer-page-script.js"
+            id="dashlane_top_layer"></script>
+    <script src="chrome-extension://gehmmocbbkpblljhkekmfhjpfbkclbph/content/pageScripts/dashlane-webauthn-page-script.js"
+            id="dashlane_webauthn"
+            name="forward_webauthn_ready"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preload"
+          href="https://whyami-beta.vercel.app/_next/static/media/797e433ab948586e-s.p.dbea232f.woff2"
+          as="font"
+          crossorigin=""
+          type="font/woff2" />
+    <link rel="preload"
+          href="https://whyami-beta.vercel.app/_next/static/media/caa3a2e1cccd8315-s.p.853070df.woff2"
+          as="font"
+          crossorigin=""
+          type="font/woff2" />
+    <link rel="stylesheet" href="./home_files/95551bd4f156ef3d.css" data-precedence="next" />
+    <link rel="preload" as="script" fetchpriority="low" href="./home_files/07b288ced41a3889.js.download" />
+    <script src="./home_files/112f346e31f991df.js.download" async=""></script>
+    <script src="./home_files/6740f161f60c6ab5.js.download" async=""></script>
+    <script src="./home_files/0ff423a9fcc0186e.js.download" async=""></script>
+    <script src="./home_files/e5a32dc6c98b1c24.js.download" async=""></script>
+    <script src="./home_files/turbopack-c439a1419c06042d.js.download" async=""></script>
+    <script src="./home_files/59694d21504b0706.js.download" async=""></script>
+    <script src="./home_files/0762c8bbbb507196.js.download" async=""></script>
+    <script src="./home_files/ff1a16fafef87110.js.download" async=""></script>
+    <script src="./home_files/247eb132b7f7b574.js.download" async=""></script>
+    <script src="./home_files/f9b3c30e602016ec.js.download" async=""></script>
+    <meta name="next-size-adjust" content="" />
+    <title>WHYAMI - Mental Health Assessment Tool</title>
+    <meta name="description"
+          content="Take confidential mental health screenings for ADHD, Anxiety, Depression, and PTSD. Get personalized results and professional referrals." />
+    <link rel="icon"
+          href="https://whyami-beta.vercel.app/favicon.ico?favicon.0b3bf435.ico"
+          sizes="256x256"
+          type="image/x-icon" />
+    <script src="./home_files/a6dad97d9634a72d.js.download" nomodule=""></script>
+    <script src="./home_files/1d422fdca9ff5810.js.download"></script>
+    <script src="./home_files/a39f3270d23c5c97.js.download"></script>
+    <script src="./home_files/b643963acf4d9c71.js.download"></script>
+</head>
+<body class="geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__variable antialiased bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors">
+    <div hidden=""><!--$--><!--/$--></div>
+    <div class="fixed top-4 right-4 z-50">
+        <button class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                aria-label="Switch to light mode">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 width="20"
+                 height="20"
+                 viewBox="0 0 24 24"
+                 fill="none"
+                 stroke="currentColor"
+                 stroke-width="2"
+                 stroke-linecap="round"
+                 stroke-linejoin="round"
+                 class="lucide lucide-sun"
+                 aria-hidden="true">
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="M12 2v2"></path>
+                <path d="M12 20v2"></path>
+                <path d="m4.93 4.93 1.41 1.41"></path>
+                <path d="m17.66 17.66 1.41 1.41"></path>
+                <path d="M2 12h2"></path>
+                <path d="M20 12h2"></path>
+                <path d="m6.34 17.66-1.41 1.41"></path>
+                <path d="m19.07 4.93-1.41 1.41"></path>
+            </svg>
+        </button>
+    </div>
+    <div class="fixed top-4 left-4 z-50 bg-white dark:bg-gray-800 p-2 rounded border text-xs">
+        <span class="text-gray-900 dark:text-white">Theme: </span><span class="text-blue-600 dark:text-blue-400" id="theme-indicator">dark</span>
+    </div>
+    <div class="min-h-screen bg-gray-50 dark:bg-gray-900">
+        <header class="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+                <div class="flex justify-between items-center mb-4">
+                    <div class="flex space-x-4">
+                        <a class="text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
+                           href="https://whyami-beta.vercel.app/dashboard">Dashboard</a>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a class="text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
+                           href="https://whyami-beta.vercel.app/auth/signin">Sign In</a><a class="text-sm text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
+                                                                                           href="https://whyami-beta.vercel.app/auth/signup">Sign Up</a>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-2">WHYAMI</h1>
+                    <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                        Understanding your mental health is the first step to feeling better
+                    </p>
+                </div>
+            </div>
+        </header>
+        <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-semibold text-gray-900 dark:text-white mb-4">
+                    Take Control of Your Mental Health
+                </h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8">
+                    Our evidence-based assessments help you understand your wellbeing in just a few minutes. Whether
+                    you need NHS support, private options, or self-help resources, we'll guide you to the right next
+                    steps.
+                </p>
+                <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700 rounded-lg p-4 max-w-3xl mx-auto">
+                    <p class="text-amber-800 dark:text-amber-200 text-sm">
+                        <strong>Important:</strong> These screenings are for informational purposes only and do not
+                        replace professional medical advice, diagnosis, or treatment. If you're experiencing a
+                        mental health emergency, please contact 999 or your local emergency services immediately.
+                    </p>
+                </div>
+            </div>
+            <div class="mb-12 text-center">
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-sm border border-gray-200 dark:border-gray-700 max-w-4xl mx-auto">
+                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+                        Simple Steps to Better Understanding
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                        <div class="text-center">
+                            <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400 rounded-full flex items-center justify-center mx-auto mb-3">
+                                1
+                            </div>
+                            <h4 class="font-semibold text-gray-900 dark:text-white mb-2">Quick Assessment</h4>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm">
+                                Answer simple questions about your recent experiences - it's easier than you think
+                            </p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400 rounded-full flex items-center justify-center mx-auto mb-3">
+                                2
+                            </div>
+                            <h4 class="font-semibold text-gray-900 dark:text-white mb-2">Clear Results</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">
+                                Get a personalised report that helps you understand your mental health patterns
+                            </p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400 rounded-full flex items-center justify-center mx-auto mb-3">
+                                3
+                            </div>
+                            <h4 class="font-semibold text-gray-900 dark:text-white mb-2">Take Action</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">
+                                Access NHS support, private options, or self-help resources based on your results
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <a class="block p-6 rounded-xl border-2 transition-all duration-200 hover:shadow-lg hover:scale-[1.02] bg-orange-50 border-orange-200 hover:bg-orange-100 dark:bg-orange-900/20 dark:border-orange-700 dark:hover:bg-orange-900/30"
+                   href="https://whyami-beta.vercel.app/test/adhd">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 p-3 rounded-lg bg-white dark:bg-gray-800 text-orange-600">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 width="24"
+                                 height="24"
+                                 viewBox="0 0 24 24"
+                                 fill="none"
+                                 stroke="currentColor"
+                                 stroke-width="2"
+                                 stroke-linecap="round"
+                                 stroke-linejoin="round"
+                                 class="lucide lucide-zap"
+                                 aria-hidden="true">
+                                <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path>
+                            </svg>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                                ADHD Assessment
+                            </h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm mb-3 leading-relaxed">
+                                Quick screening to understand your focus, energy, and attention patterns. Takes just
+                                5-7 minutes to complete.
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 px-2 py-1 rounded-full">
+                                    ⏱️
+                                    <!-- -->5-7 minutes
+                                </span><span class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Start Assessment →</span>
+                            </div>
+                        </div>
+                    </div>
+                </a><a class="block p-6 rounded-xl border-2 transition-all duration-200 hover:shadow-lg hover:scale-[1.02] bg-blue-50 border-blue-200 hover:bg-blue-100 dark:bg-blue-900/20 dark:border-blue-700 dark:hover:bg-blue-900/30"
+                       href="https://whyami-beta.vercel.app/test/anxiety">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 p-3 rounded-lg bg-white dark:bg-gray-800 text-blue-600">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 width="24"
+                                 height="24"
+                                 viewBox="0 0 24 24"
+                                 fill="none"
+                                 stroke="currentColor"
+                                 stroke-width="2"
+                                 stroke-linecap="round"
+                                 stroke-linejoin="round"
+                                 class="lucide lucide-heart"
+                                 aria-hidden="true">
+                                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+                            </svg>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                                Anxiety Assessment
+                            </h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm mb-3 leading-relaxed">
+                                Simple evaluation of worry and nervousness patterns. Quick 4-6 minute assessment to
+                                help you understand your anxiety levels.
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 px-2 py-1 rounded-full">
+                                    ⏱️
+                                    <!-- -->4-6 minutes
+                                </span><span class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Start Assessment →</span>
+                            </div>
+                        </div>
+                    </div>
+                </a><a class="block p-6 rounded-xl border-2 transition-all duration-200 hover:shadow-lg hover:scale-[1.02] bg-purple-50 border-purple-200 hover:bg-purple-100 dark:bg-purple-900/20 dark:border-blue-700 dark:hover:bg-purple-900/30"
+                       href="https://whyami-beta.vercel.app/test/depression">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 p-3 rounded-lg bg-white dark:bg-gray-800 text-purple-600">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 width="24"
+                                 height="24"
+                                 viewBox="0 0 24 24"
+                                 fill="none"
+                                 stroke="currentColor"
+                                 stroke-width="2"
+                                 stroke-linecap="round"
+                                 stroke-linejoin="round"
+                                 class="lucide lucide-brain"
+                                 aria-hidden="true">
+                                <path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"></path>
+                                <path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"></path>
+                                <path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"></path>
+                                <path d="M17.599 6.5a3 3 0 0 0 .399-1.375"></path>
+                                <path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"></path>
+                                <path d="M3.477 10.896a4 4 0 0 1 .585-.396"></path>
+                                <path d="M19.938 10.5a4 4 0 0 1 .585.396"></path>
+                                <path d="M6 18a4 4 0 0 1-1.967-.516"></path>
+                                <path d="M19.967 17.484A4 4 0 0 1 18 18"></path>
+                            </svg>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                                Depression Assessment
+                            </h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm mb-3 leading-relaxed">
+                                Straightforward screening for mood and energy patterns. Takes only 5-8 minutes to
+                                gain valuable insights about your wellbeing.
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 px-2 py-1 rounded-full">
+                                    ⏱️
+                                    <!-- -->5-8 minutes
+                                </span><span class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Start Assessment →</span>
+                            </div>
+                        </div>
+                    </div>
+                </a><a class="block p-6 rounded-xl border-2 transition-all duration-200 hover:shadow-lg hover:scale-[1.02] bg-green-50 border-green-200 hover:bg-green-100 dark:bg-green-900/20 dark:border-green-700 dark:hover:bg-green-900/30"
+                       href="https://whyami-beta.vercel.app/test/ptsd">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 p-3 rounded-lg bg-white dark:bg-gray-800 text-green-600">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 width="24"
+                                 height="24"
+                                 viewBox="0 0 24 24"
+                                 fill="none"
+                                 stroke="currentColor"
+                                 stroke-width="2"
+                                 stroke-linecap="round"
+                                 stroke-linejoin="round"
+                                 class="lucide lucide-shield"
+                                 aria-hidden="true">
+                                <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path>
+                            </svg>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                                PTSD Assessment
+                            </h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm mb-3 leading-relaxed">
+                                Gentle evaluation of trauma-related responses. 6-9 minute assessment to help you
+                                understand your healing journey.
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 px-2 py-1 rounded-full">
+                                    ⏱️
+                                    <!-- -->6-9 minutes
+                                </span><span class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Start Assessment →</span>
+                            </div>
+                        </div>
+                    </div>
+                </a><a class="block p-6 rounded-xl border-2 transition-all duration-200 hover:shadow-lg hover:scale-[1.02] bg-indigo-50 border-indigo-200 hover:bg-indigo-100 dark:bg-indigo-900/20 dark:border-indigo-700 dark:hover:bg-indigo-900/30"
+                       href="https://whyami-beta.vercel.app/test/autism">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 p-3 rounded-lg bg-white dark:bg-gray-800 text-indigo-600">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 width="24"
+                                 height="24"
+                                 viewBox="0 0 24 24"
+                                 fill="none"
+                                 stroke="currentColor"
+                                 stroke-width="2"
+                                 stroke-linecap="round"
+                                 stroke-linejoin="round"
+                                 class="lucide lucide-puzzle"
+                                 aria-hidden="true">
+                                <path d="M15.39 4.39a1 1 0 0 0 1.68-.474 2.5 2.5 0 1 1 3.014 3.015 1 1 0 0 0-.474 1.68l1.683 1.682a2.414 2.414 0 0 1 0 3.414L19.61 15.39a1 1 0 0 1-1.68-.474 2.5 2.5 0 1 0-3.014 3.015 1 1 0 0 1 .474 1.68l-1.683 1.682a2.414 2.414 0 0 1-3.414 0L8.61 19.61a1 1 0 0 0-1.68.474 2.5 2.5 0 1 1-3.014-3.015 1 1 0 0 0 .474-1.68l-1.683-1.682a2.414 2.414 0 0 1 0-3.414L4.39 8.61a1 1 0 0 1 1.68.474 2.5 2.5 0 1 0 3.014-3.015 1 1 0 0 1-.474-1.68l1.683-1.682a2.414 2.414 0 0 1 3.414 0z"></path>
+                            </svg>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                                Autism Assessment
+                            </h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm mb-3 leading-relaxed">
+                                Comprehensive screening for autistic traits and characteristics. 8-12 minute
+                                assessment to help you understand your unique perspective.
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 px-2 py-1 rounded-full">
+                                    ⏱️
+                                    <!-- -->8-12 minutes
+                                </span><span class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Start Assessment →</span>
+                            </div>
+                        </div>
+                    </div>
+                </a><a class="block p-6 rounded-xl border-2 transition-all duration-200 hover:shadow-lg hover:scale-[1.02] bg-red-50 border-red-200 hover:bg-red-100 dark:bg-red-900/20 dark:border-red-700 dark:hover:bg-red-900/30"
+                       href="https://whyami-beta.vercel.app/test/aces">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 p-3 rounded-lg bg-white dark:bg-gray-800 text-red-600">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 width="24"
+                                 height="24"
+                                 viewBox="0 0 24 24"
+                                 fill="none"
+                                 stroke="currentColor"
+                                 stroke-width="2"
+                                 stroke-linecap="round"
+                                 stroke-linejoin="round"
+                                 class="lucide lucide-triangle-alert"
+                                 aria-hidden="true">
+                                <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"></path>
+                                <path d="M12 9v4"></path>
+                                <path d="M12 17h.01"></path>
+                            </svg>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                                ACES Assessment
+                            </h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm mb-3 leading-relaxed">
+                                Adverse Childhood Experiences screening to understand how early experiences may
+                                affect your current mental health and wellbeing.
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 px-2 py-1 rounded-full">
+                                    ⏱️
+                                    <!-- -->5-7 minutes
+                                </span><span class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Start Assessment →</span>
+                            </div>
+                        </div>
+                    </div>
+                </a><a class="block p-6 rounded-xl border-2 transition-all duration-200 hover:shadow-lg hover:scale-[1.02] bg-amber-50 border-amber-200 hover:bg-amber-100 dark:bg-amber-900/20 dark:border-amber-700 dark:hover:bg-amber-900/30"
+                       href="https://whyami-beta.vercel.app/test/psychosis">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 p-3 rounded-lg bg-white dark:bg-gray-800 text-amber-600">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 width="24"
+                                 height="24"
+                                 viewBox="0 0 24 24"
+                                 fill="none"
+                                 stroke="currentColor"
+                                 stroke-width="2"
+                                 stroke-linecap="round"
+                                 stroke-linejoin="round"
+                                 class="lucide lucide-triangle-alert"
+                                 aria-hidden="true">
+                                <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"></path>
+                                <path d="M12 9v4"></path>
+                                <path d="M12 17h.01"></path>
+                            </svg>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                                Psychosis Assessment
+                            </h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm mb-3 leading-relaxed">
+                                Screening for experiences like hearing voices, unusual beliefs, or changes in
+                                thinking patterns that may need professional attention.
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 px-2 py-1 rounded-full">
+                                    ⏱️
+                                    <!-- -->6-8 minutes
+                                </span><span class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Start Assessment →</span>
+                            </div>
+                        </div>
+                    </div>
+                </a><a class="block p-6 rounded-xl border-2 transition-all duration-200 hover:shadow-lg hover:scale-[1.02] bg-pink-50 border-pink-200 hover:bg-pink-100 dark:bg-pink-900/20 dark:border-pink-700 dark:hover:bg-pink-900/30"
+                       href="https://whyami-beta.vercel.app/test/bpd">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 p-3 rounded-lg bg-white dark:bg-gray-800 text-pink-600">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 width="24"
+                                 height="24"
+                                 viewBox="0 0 24 24"
+                                 fill="none"
+                                 stroke="currentColor"
+                                 stroke-width="2"
+                                 stroke-linecap="round"
+                                 stroke-linejoin="round"
+                                 class="lucide lucide-users"
+                                 aria-hidden="true">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                                <path d="M16 3.128a4 4 0 0 1 0 7.744"></path>
+                                <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                            </svg>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">BPD Assessment</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm mb-3 leading-relaxed">
+                                Borderline Personality Disorder screening to understand emotional regulation,
+                                relationships, and sense of self patterns.
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 px-2 py-1 rounded-full">
+                                    ⏱️
+                                    <!-- -->7-9 minutes
+                                </span><span class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Start Assessment →</span>
+                            </div>
+                        </div>
+                    </div>
+                </a><a class="block p-6 rounded-xl border-2 transition-all duration-200 hover:shadow-lg hover:scale-[1.02] bg-cyan-50 border-cyan-200 hover:bg-cyan-100 dark:bg-cyan-900/20 dark:border-cyan-700 dark:hover:bg-cyan-900/30"
+                       href="https://whyami-beta.vercel.app/test/bdd">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 p-3 rounded-lg bg-white dark:bg-gray-800 text-cyan-600">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 width="24"
+                                 height="24"
+                                 viewBox="0 0 24 24"
+                                 fill="none"
+                                 stroke="currentColor"
+                                 stroke-width="2"
+                                 stroke-linecap="round"
+                                 stroke-linejoin="round"
+                                 class="lucide lucide-eye"
+                                 aria-hidden="true">
+                                <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">BDD Assessment</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm mb-3 leading-relaxed">
+                                Body Dysmorphic Disorder screening to understand concerns about appearance and body
+                                image that may affect daily life.
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 px-2 py-1 rounded-full">
+                                    ⏱️
+                                    <!-- -->5-7 minutes
+                                </span><span class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Start Assessment →</span>
+                            </div>
+                        </div>
+                    </div>
+                </a><a class="block p-6 rounded-xl border-2 transition-all duration-200 hover:shadow-lg hover:scale-[1.02] bg-violet-50 border-violet-200 hover:bg-violet-100 dark:bg-violet-900/20 dark:border-violet-700 dark:hover:bg-violet-900/30"
+                       href="https://whyami-beta.vercel.app/test/ocd">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 p-3 rounded-lg bg-white dark:bg-gray-800 text-violet-600">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 width="24"
+                                 height="24"
+                                 viewBox="0 0 24 24"
+                                 fill="none"
+                                 stroke="currentColor"
+                                 stroke-width="2"
+                                 stroke-linecap="round"
+                                 stroke-linejoin="round"
+                                 class="lucide lucide-repeat"
+                                 aria-hidden="true">
+                                <path d="m17 2 4 4-4 4"></path>
+                                <path d="M3 11v-1a4 4 0 0 1 4-4h14"></path>
+                                <path d="m7 22-4-4 4-4"></path>
+                                <path d="M21 13v1a4 4 0 0 1-4 4H3"></path>
+                            </svg>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">OCD Assessment</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm mb-3 leading-relaxed">
+                                Obsessive-Compulsive Disorder screening to understand intrusive thoughts and
+                                repetitive behaviours that may cause distress.
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 px-2 py-1 rounded-full">
+                                    ⏱️
+                                    <!-- -->6-8 minutes
+                                </span><span class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Start Assessment →</span>
+                            </div>
+                        </div>
+                    </div>
+                </a><a class="block p-6 rounded-xl border-2 transition-all duration-200 hover:shadow-lg hover:scale-[1.02] bg-emerald-50 border-emerald-200 hover:bg-emerald-100 dark:bg-emerald-900/20 dark:border-emerald-700 dark:hover:bg-emerald-900/30"
+                       href="https://whyami-beta.vercel.app/test/social-anxiety">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 p-3 rounded-lg bg-white dark:bg-gray-800 text-emerald-600">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 width="24"
+                                 height="24"
+                                 viewBox="0 0 24 24"
+                                 fill="none"
+                                 stroke="currentColor"
+                                 stroke-width="2"
+                                 stroke-linecap="round"
+                                 stroke-linejoin="round"
+                                 class="lucide lucide-message-circle"
+                                 aria-hidden="true">
+                                <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
+                            </svg>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                                Social Anxiety Assessment
+                            </h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm mb-3 leading-relaxed">
+                                Screening for social anxiety and social phobia to understand fear and avoidance of
+                                social situations.
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 px-2 py-1 rounded-full">
+                                    ⏱️
+                                    <!-- -->5-7 minutes
+                                </span><span class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Start Assessment →</span>
+                            </div>
+                        </div>
+                    </div>
+                </a><a class="block p-6 rounded-xl border-2 transition-all duration-200 hover:shadow-lg hover:scale-[1.02] bg-rose-50 border-rose-200 hover:bg-rose-100 dark:bg-rose-900/20 dark:border-rose-700 dark:hover:bg-rose-900/30"
+                       href="https://whyami-beta.vercel.app/test/postnatal-depression">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 p-3 rounded-lg bg-white dark:bg-gray-800 text-rose-600">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 width="24"
+                                 height="24"
+                                 viewBox="0 0 24 24"
+                                 fill="none"
+                                 stroke="currentColor"
+                                 stroke-width="2"
+                                 stroke-linecap="round"
+                                 stroke-linejoin="round"
+                                 class="lucide lucide-baby"
+                                 aria-hidden="true">
+                                <path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5"></path>
+                                <path d="M15 12h.01"></path>
+                                <path d="M19.38 6.813A9 9 0 0 1 20.8 10.2a2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1"></path>
+                                <path d="M9 12h.01"></path>
+                            </svg>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                                Post-natal Depression Assessment
+                            </h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm mb-3 leading-relaxed">
+                                Screening for post-natal depression and perinatal mental health concerns affecting
+                                new parents.
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 px-2 py-1 rounded-full">
+                                    ⏱️
+                                    <!-- -->6-8 minutes
+                                </span><span class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Start Assessment →</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </main>
+        <footer class="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                <div class="text-center text-gray-500 dark:text-gray-400 text-sm">
+                    <p class="mb-2">
+                        WHYAMI is here to support your mental health journey. Our assessments provide insights, not
+                        diagnoses, and should be used alongside professional care.
+                    </p>
+                    <p>
+                        If you're in crisis, please contact 999, Samaritans (116 123), or text SHOUT to 85258
+                        immediately.
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!--$--><!--/$-->
+    <script src="./home_files/07b288ced41a3889.js.download" id="_R_" async=""></script>
+    <script>
+        (self.__next_f = self.__next_f || []).push([0]);
+    </script>
+    <script>
+        self.__next_f.push([
+            1,
+            '1:"$Sreact.fragment"\n2:I[8181,["/_next/static/chunks/59694d21504b0706.js","/_next/static/chunks/0762c8bbbb507196.js"],"default"]\n3:I[14073,["/_next/static/chunks/59694d21504b0706.js","/_next/static/chunks/0762c8bbbb507196.js"],"ThemeProvider"]\n4:I[2330,["/_next/static/chunks/59694d21504b0706.js","/_next/static/chunks/0762c8bbbb507196.js"],"default"]\n5:I[39756,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/247eb132b7f7b574.js"],"default"]\n6:I[37457,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/247eb132b7f7b574.js"],"default"]\n7:I[47257,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/247eb132b7f7b574.js"],"ClientPageRoot"]\n8:I[31713,["/_next/static/chunks/59694d21504b0706.js","/_next/static/chunks/0762c8bbbb507196.js","/_next/static/chunks/f9b3c30e602016ec.js"],"default"]\nb:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/247eb132b7f7b574.js"],"OutletBoundary"]\nc:"$Sreact.suspense"\ne:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/247eb132b7f7b574.js"],"ViewportBoundary"]\n10:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/247eb132b7f7b574.js"],"MetadataBoundary"]\n12:I[68027,[],"default"]\n:HL["/_next/static/chunks/95551bd4f156ef3d.css","style"]\n:HL["/_next/static/media/797e433ab948586e-s.p.dbea232f.woff2","font",{"crossOrigin":"","type":"font/woff2"}]\n:HL["/_next/static/media/caa3a2e1cccd8315-s.p.853070df.woff2","font",{"crossOrigin":"","type":"font/woff2"}]\n',
+        ]);
+    </script>
+    <script>
+        self.__next_f.push([
+            1,
+            '0:{"P":null,"b":"R0TS_3tKOz1J469nQqVC9","c":["",""],"q":"","i":false,"f":[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/95551bd4f156ef3d.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/59694d21504b0706.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/0762c8bbbb507196.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":["$","body",null,{"className":"geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__variable antialiased bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors","children":["$","$L2",null,{"children":["$","$L3",null,{"children":[["$","div",null,{"className":"fixed top-4 right-4 z-50","children":["$","$L4",null,{}]}],["$","div",null,{"className":"fixed top-4 left-4 z-50 bg-white dark:bg-gray-800 p-2 rounded border text-xs","children":[["$","span",null,{"className":"text-gray-900 dark:text-white","children":"Theme: "}],["$","span",null,{"className":"text-blue-600 dark:text-blue-400","id":"theme-indicator","children":"Loading..."}]]}],["$","$L5",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L6",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\\"Segoe UI\\",Roboto,Helvetica,Arial,sans-serif,\\"Apple Color Emoji\\",\\"Segoe UI Emoji\\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]]}]}]}]}]]}],{"children":[["$","$1","c",{"children":[["$","$L7",null,{"Component":"$8","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@9","$@a"]}}],[["$","script","script-0",{"src":"/_next/static/chunks/f9b3c30e602016ec.js","async":true,"nonce":"$undefined"}]],["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]]}],{},null,false,false]},null,false,false],["$","$1","h",{"children":[null,["$","$Le",null,{"children":"$@f"}],["$","div",null,{"hidden":true,"children":["$","$L10",null,{"children":["$","$c",null,{"name":"Next.Metadata","children":"$@11"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],false]],"m":"$undefined","G":["$12",[]],"S":true}\n',
+        ]);
+    </script>
+    <script>
+        self.__next_f.push([
+            1,
+            '9:{}\na:"$0:f:0:1:1:children:0:props:children:0:props:serverProvidedParams:params"\n',
+        ]);
+    </script>
+    <script>
+        self.__next_f.push([
+            1,
+            'f:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]\n',
+        ]);
+    </script>
+    <script>
+        self.__next_f.push([
+            1,
+            '13:I[27201,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/247eb132b7f7b574.js"],"IconMark"]\n11:[["$","title","0",{"children":"WHYAMI - Mental Health Assessment Tool"}],["$","meta","1",{"name":"description","content":"Take confidential mental health screenings for ADHD, Anxiety, Depression, and PTSD. Get personalized results and professional referrals."}],["$","link","2",{"rel":"icon","href":"/favicon.ico?favicon.0b3bf435.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L13","3",{}]]\nd:null\n',
+        ]);
+    </script>
+    <next-route-announcer style="position: absolute">
+        <template shadowrootmode="open">
+            <div aria-live="assertive"
+                 id="__next-route-announcer__"
+                 role="alert"
+                 style="
+                        position: absolute;
+                        border: 0px;
+                        height: 1px;
+                        margin: -1px;
+                        padding: 0px;
+                        width: 1px;
+                        clip: rect(0px, 0px, 0px, 0px);
+                        overflow: hidden;
+                        white-space: nowrap;
+                        overflow-wrap: normal;
+                    "></div>
+        </template>
+    </next-route-announcer>
+</body>
+</html>
